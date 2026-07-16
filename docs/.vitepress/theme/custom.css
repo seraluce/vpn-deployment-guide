@@ -28,38 +28,29 @@
   --vp-c-divider: #1e293b;
 }
 
-/* Header导航栏 - 深色模式用深色背景 */
-.dark .VPNav,
-.dark .VPNavBar,
-.dark .VPNavBarTitle {
+/* ===== 导航栏全宽处理 ===== */
+/* 去掉所有导航栏border和阴影 */
+.VPNav,
+.VPNavBar,
+.VPNavBarTitle,
+.VPNavBar .wrapper {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* 隐藏divider */
+.divider {
+  display: none !important;
+}
+
+/* 深色模式导航栏背景 */
+.dark .VPNav {
   background-color: var(--vp-nav-bg-color) !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
 }
 
-.dark .VPNavBar::after {
-  display: none !important;
-}
-
-.dark .divider {
-  display: none !important;
-}
-
-/* Header导航栏 - 浅色模式用白色背景 */
-.light .VPNav,
-.light .VPNavBar,
-.light .VPNavBarTitle {
+/* 浅色模式导航栏背景 */
+.light .VPNav {
   background-color: #ffffff !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-}
-
-.light .VPNavBar::after {
-  display: none !important;
-}
-
-.light .divider {
-  display: none !important;
 }
 
 /* Sidebar - 深色模式用更深的背景与Header区分 */
