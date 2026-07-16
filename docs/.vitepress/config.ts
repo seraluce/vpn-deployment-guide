@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'VPN 服务端部署指南',
   description: '全面的VPN服务端部署教程，涵盖多种协议和部署方式',
+  base: '/vpn-deployment-guide/',
   
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
