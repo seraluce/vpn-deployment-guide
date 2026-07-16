@@ -33,6 +33,12 @@
 .dark .VPNavBar,
 .dark .VPNavBarTitle {
   background-color: var(--vp-nav-bg-color) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.dark .VPNavBar::after {
+  display: none !important;
 }
 
 /* Header导航栏 - 浅色模式用白色背景 */
@@ -40,6 +46,12 @@
 .light .VPNavBar,
 .light .VPNavBarTitle {
   background-color: #ffffff !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.light .VPNavBar::after {
+  display: none !important;
 }
 
 /* Sidebar - 深色模式用更深的背景与Header区分 */
