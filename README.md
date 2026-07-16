@@ -178,6 +178,37 @@ ss://base64(method:password@server:port)
    - 调整MTU值
    - 使用性能更好的加密算法
 
+## Wiki文档
+
+完整的文档已部署在GitHub Wiki中：[VPN部署指南Wiki](https://github.com/seraluce/vpn-deployment-guide/wiki)
+
+### 部署Wiki到GitHub
+
+```bash
+# 克隆wiki仓库
+git clone https://github.com/seraluce/vpn-deployment-guide.wiki.git
+
+# 进入wiki目录
+cd vpn-deployment-guide.wiki
+
+# 复制文档
+cp ../vpn-deployment-guide/wiki/* .
+
+# 提交并推送
+git add .
+git commit -m "更新文档"
+git push
+```
+
+### 自动部署
+
+使用提供的脚本自动部署：
+
+```bash
+# 运行部署脚本
+./deploy-wiki.sh
+```
+
 ## 贡献
 
 欢迎提交Issue和Pull Request来完善文档。
