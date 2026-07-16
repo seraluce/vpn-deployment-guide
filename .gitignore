@@ -74,6 +74,7 @@ dist
 # VitePress build output
 docs/.vitepress/dist
 docs/.vitepress/cache
+.vitepress
 
 # Gatsby files
 .cache/
