@@ -1,0 +1,25 @@
+{
+  "name": "vpn-deployment-guide",
+  "version": "1.0.0",
+  "description": "全面的VPN服务端部署教程，涵盖多种协议和部署方式",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seraluce/vpn-deployment-guide.git"
+  },
+  "keywords": ["vpn", "wireguard", "openvpn", "shadowsocks", "v2ray", "deployment"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seraluce/vpn-deployment-guide/issues"
+  },
+  "homepage": "https://github.com/seraluce/vpn-deployment-guide#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

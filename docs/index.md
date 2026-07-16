@@ -1,50 +1,121 @@
-# VPN 服务端部署指南
+---
+layout: home
 
-欢迎使用VPN服务端部署指南！本项目提供全面的VPN服务端部署教程，帮助您快速搭建安全可靠的VPN服务。
+hero:
+  name: "VPN 服务端部署指南"
+  text: "全面的VPN部署教程"
+  tagline: 覆盖多种VPN协议和部署方式，帮助您快速搭建安全可靠的VPN服务
+  actions:
+    - theme: brand
+      text: 快速开始
+      link: /guide/quick-start
+    - theme: alt
+      text: GitHub
+      link: https://github.com/seraluce/vpn-deployment-guide
 
-## 目录
+features:
+  - icon: 🛡️
+    title: 多协议支持
+    details: 支持 WireGuard、OpenVPN、Shadowsocks、V2Ray/Xray 等主流VPN协议
+  - icon: 🐳
+    title: Docker部署
+    details: 容器化部署，一键启动，易于管理和扩展
+  - icon: ☁️
+    title: 云平台支持
+    details: 支持 AWS、阿里云、腾讯云、Google Cloud 等主流云平台
+  - icon: 🔗
+    title: 订阅链接
+    details: 自动生成客户端配置订阅链接，支持多用户管理
+  - icon: 🔒
+    title: 安全配置
+    details: 防火墙、TLS证书、安全加固，全方位保护您的VPN服务
+  - icon: 📖
+    title: 详细文档
+    details: 从入门到进阶，提供完整的部署指南和故障排除
+---
+
+## 快速开始
+
+### WireGuard Docker部署
+
+```bash
+# 创建配置目录
+mkdir -p ~/wireguard && cd ~/wireguard
+
+# 创建docker-compose.yml
+cat > docker-compose.yml << EOF
+version: '3.8'
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - SERVERURL=your-server-ip
+      - SERVERPORT=51820
+      - PEERS=3
+    volumes:
+      - ./config:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+EOF
+
+# 启动服务
+sudo docker-compose up -d
+```
+
+## 文档导航
+
+<div class="cards">
+
+<div class="card">
 
 ### 入门指南
-- [项目概述](guide/overview.md)
-- [环境要求](guide/requirements.md)
-- [快速开始](guide/quick-start.md)
 
-### VPN协议部署
-- [WireGuard](protocols/wireguard.md)
-- [OpenVPN](protocols/openvpn.md)
-- [Shadowsocks](protocols/shadowsocks.md)
-- [V2Ray/Xray](protocols/v2ray.md)
+- [项目概述](guide/overview)
+- [环境要求](guide/requirements)
+- [快速开始](guide/quick-start)
+
+</div>
+
+<div class="card">
+
+### VPN协议
+
+- [WireGuard](protocols/wireguard)
+- [OpenVPN](protocols/openvpn)
+- [Shadowsocks](protocols/shadowsocks)
+- [V2Ray/Xray](protocols/v2ray)
+
+</div>
+
+<div class="card">
 
 ### 部署方式
-- [Docker部署](deployment/docker.md)
-- [手动安装](deployment/manual.md)
-- [云平台部署](deployment/cloud.md)
 
-### 订阅链接配置
-- [订阅链接概述](subscription/overview.md)
-- [订阅链接生成](subscription/generation.md)
-- [客户端配置](subscription/client-config.md)
+- [Docker部署](deployment/docker)
+- [手动安装](deployment/manual)
+- [云平台部署](deployment/cloud)
 
-### 安全配置
-- [防火墙配置](security/firewall.md)
-- [TLS证书配置](security/tls.md)
-- [安全加固](security/hardening.md)
+</div>
 
-### 故障排除
-- [常见问题](troubleshooting/common-issues.md)
-- [日志分析](troubleshooting/logs.md)
+<div class="card">
 
-## 选择建议
+### 高级配置
 
-**新手推荐**：从[快速开始](guide/quick-start.md)入手，使用Docker一键部署WireGuard。
+- [订阅链接](subscription/overview)
+- [安全配置](security/firewall)
+- [故障排除](troubleshooting/common-issues)
 
-**生产环境**：参考[安全加固](security/hardening.md)和[TLS证书配置](security/tls.md)。
+</div>
 
-**多用户场景**：了解[订阅链接配置](subscription/overview.md)以便为不同用户生成配置。
-
-## 技术栈
-
-- VPN协议：WireGuard、OpenVPN、Shadowsocks、V2Ray/Xray
-- 部署工具：Docker、Docker Compose
-- 系统要求：Linux (Ubuntu/Debian/CentOS)
-- 客户端支持：Windows、macOS、iOS、Android
+</div>

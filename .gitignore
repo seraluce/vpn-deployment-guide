@@ -71,6 +71,10 @@ web_modules/
 .nuxt
 dist
 
+# VitePress build output
+docs/.vitepress/dist
+docs/.vitepress/cache
+
 # Gatsby files
 .cache/
 

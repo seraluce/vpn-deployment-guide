@@ -1,8 +1,13 @@
 # VPN 服务端部署指南
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Deploy VitePress](https://github.com/seraluce/vpn-deployment-guide/actions/workflows/deploy.yml/badge.svg)](https://github.com/seraluce/vpn-deployment-guide/actions/workflows/deploy.yml)
 
 全面的VPN服务端部署教程，涵盖多种协议和部署方式，以及订阅链接配置。
+
+## 在线文档
+
+**[查看在线文档](https://seraluce.github.io/vpn-deployment-guide/)**
 
 ## 项目简介
 
@@ -60,19 +65,6 @@ sudo docker logs wireguard
 
 ## 文档结构
 
-### Wiki文档
-
-完整的文档已部署在项目的Wiki中，包括：
-
-- **入门指南**：项目概述、环境要求、快速开始
-- **VPN协议部署**：WireGuard、OpenVPN、Shadowsocks、V2Ray/Xray
-- **部署方式**：Docker部署、手动安装、云平台部署
-- **订阅链接配置**：订阅链接概述、生成、客户端配置
-- **安全配置**：防火墙配置、TLS证书、安全加固
-- **故障排除**：常见问题、日志分析
-
-### 文档目录
-
 ```
 docs/
 ├── index.md                    # 文档首页
@@ -95,11 +87,51 @@ docs/
 │   └── client-config.md       # 客户端配置
 ├── security/
 │   ├── firewall.md            # 防火墙配置
-│   ├── tls.md                 # TLS证书
+│   ├── tls.md                 # TLS证书配置
 │   └── hardening.md           # 安全加固
 └── troubleshooting/
     ├── common-issues.md       # 常见问题
     └── logs.md                # 日志分析
+```
+
+## 本地开发
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 启动开发服务器
+
+```bash
+npm run dev
+```
+
+### 构建生产版本
+
+```bash
+npm run build
+```
+
+### 预览构建结果
+
+```bash
+npm run preview
+```
+
+## 部署到GitHub Pages
+
+项目已配置GitHub Actions自动部署。推送到`main`分支后会自动构建并部署到GitHub Pages。
+
+### 手动部署
+
+```bash
+# 构建
+npm run build
+
+# 部署到GitHub Pages
+# 将 docs/.vitepress/dist 目录内容推送到 gh-pages 分支
 ```
 
 ## 支持的协议
@@ -111,27 +143,6 @@ docs/
 | Shadowsocks | 轻量级、抗封锁 | 网络受限环境 | ⭐⭐⭐⭐ |
 | V2Ray/Xray | 功能丰富、协议多样 | 复杂网络环境 | ⭐⭐⭐⭐ |
 
-## 部署方式
-
-### Docker部署（推荐）
-
-```bash
-# 一键部署WireGuard
-bash <(curl -L https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh)
-```
-
-### 手动安装
-
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install wireguard -y
-```
-
-### 云平台部署
-
-支持AWS、Google Cloud、Azure、阿里云、腾讯云等主流云平台。
-
 ## 客户端支持
 
 - **Windows**：Clash for Windows、v2rayN、Shadowsocks-windows
@@ -139,75 +150,6 @@ sudo apt install wireguard -y
 - **iOS**：Shadowrocket、Quantumult X、Surge
 - **Android**：Clash for Android、V2RayNG、Shadowsocks Android
 - **Linux**：Clash、V2Ray、Shadowsocks
-
-## 订阅链接
-
-订阅链接功能允许为VPN客户端生成配置文件，方便用户管理和分发配置。
-
-```bash
-# 生成VMess订阅链接
-vmess://base64(config)
-
-# 生成Shadowsocks订阅链接
-ss://base64(method:password@server:port)
-```
-
-## 安全特性
-
-- **加密算法**：AES-256-GCM、ChaCha20-Poly1305
-- **TLS加密**：支持TLS 1.2/1.3
-- **防火墙**：iptables、ufw、firewalld
-- **访问控制**：IP白名单、Token验证
-
-## 故障排除
-
-### 常见问题
-
-1. **无法连接VPN**
-   - 检查防火墙是否开放端口
-   - 检查服务是否正常运行
-   - 检查客户端配置是否正确
-
-2. **连接后无法上网**
-   - 检查IP转发是否启用
-   - 检查路由配置是否正确
-   - 检查DNS设置
-
-3. **速度慢**
-   - 选择离用户近的服务器
-   - 调整MTU值
-   - 使用性能更好的加密算法
-
-## Wiki文档
-
-完整的文档已部署在GitHub Wiki中：[VPN部署指南Wiki](https://github.com/seraluce/vpn-deployment-guide/wiki)
-
-### 部署Wiki到GitHub
-
-```bash
-# 克隆wiki仓库
-git clone https://github.com/seraluce/vpn-deployment-guide.wiki.git
-
-# 进入wiki目录
-cd vpn-deployment-guide.wiki
-
-# 复制文档
-cp ../vpn-deployment-guide/wiki/* .
-
-# 提交并推送
-git add .
-git commit -m "更新文档"
-git push
-```
-
-### 自动部署
-
-使用提供的脚本自动部署：
-
-```bash
-# 运行部署脚本
-./deploy-wiki.sh
-```
 
 ## 贡献
 

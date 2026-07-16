@@ -240,6 +240,6 @@ A: 检查以下项目：
 
 ## 下一步
 
-- [订阅链接生成](generation.md)：如何生成订阅链接
-- [客户端配置](client-config.md)：如何配置客户端
-- [高级配置](../security/tls.md)：HTTPS和安全配置
+- [订阅链接生成](generation)：如何生成订阅链接
+- [客户端配置](client-config)：如何配置客户端
+- [高级配置](../security/tls)：HTTPS和安全配置

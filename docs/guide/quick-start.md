@@ -230,13 +230,13 @@ A: 尝试以下优化：
 
 ## 下一步
 
-- [安全配置](../security/firewall.md)：配置防火墙和TLS证书
-- [订阅链接](../subscription/overview.md)：为多用户生成配置
-- [性能优化](../troubleshooting/common-issues.md)：优化VPN性能
+- [防火墙配置](../security/firewall)：配置防火墙和TLS证书
+- [订阅链接概述](../subscription/overview)：为多用户生成配置
+- [常见问题](../troubleshooting/common-issues)：优化VPN性能
 
 ## 获取帮助
 
 如果遇到问题，请查看：
-1. [常见问题](../troubleshooting/common-issues.md)
-2. [日志分析](../troubleshooting/logs.md)
+1. [常见问题](../troubleshooting/common-issues)
+2. [日志分析](../troubleshooting/logs)
 3. 提交Issue到GitHub仓库
