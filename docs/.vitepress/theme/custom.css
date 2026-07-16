@@ -29,13 +29,17 @@
 }
 
 /* Header导航栏 - 深色模式用深色背景 */
-.dark .VPNav {
+.dark .VPNav,
+.dark .VPNavBar,
+.dark .VPNavBarTitle {
   background-color: var(--vp-nav-bg-color) !important;
   border-bottom: 1px solid #334155 !important;
 }
 
 /* Header导航栏 - 浅色模式用白色背景 */
-.light .VPNav {
+.light .VPNav,
+.light .VPNavBar,
+.light .VPNavBarTitle {
   background-color: #ffffff !important;
   border-bottom: 1px solid #e2e8f0 !important;
 }
