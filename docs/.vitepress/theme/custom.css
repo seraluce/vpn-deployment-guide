@@ -41,6 +41,10 @@
   display: none !important;
 }
 
+.dark .divider {
+  display: none !important;
+}
+
 /* Header导航栏 - 浅色模式用白色背景 */
 .light .VPNav,
 .light .VPNavBar,
@@ -51,6 +55,10 @@
 }
 
 .light .VPNavBar::after {
+  display: none !important;
+}
+
+.light .divider {
   display: none !important;
 }
 
